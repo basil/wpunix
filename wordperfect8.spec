@@ -30,6 +30,7 @@ Provides:       bundled(libc) = 5.3.12-29
 
 %define __strip /bin/true
 %global __provides_exclude_from ^/opt/wp80/lib
+%global __requires_exclude_from ^/opt/wp80/
 
 %description
 WordPerfect is a word processing application for character terminals.
