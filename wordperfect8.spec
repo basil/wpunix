@@ -1,11 +1,14 @@
+%global forgeurl https://github.com/basil/wpunix
+%global branch main
+%forgemeta
+
 Name:           wordperfect8
 Version:        0.13
 Release:        1%{?dist}
 Summary:        WordPerfect for UNIX (TM) Character Terminals
 License:        Abandonware
-URL:            https://github.com/taviso/wpunix
-#Source0:       https://github.com/taviso/wpunix/archive/refs/heads/main.tar.gz
-Source0:        https://github.com/taviso/wpunix/archive/v%{version}/%{name}-%{version}.tar.gz
+URL:            %{forgeurl}
+Source0:        %{forgesource}
 Source1:        https://legacy.redhat.com/pub/redhat/linux/5.2/en/os/i386/RedHat/RPMS/libc-5.3.12-27.i386.rpm
 Source2:        https://legacy.redhat.com/pub/redhat/linux/5.2/en/os/i386/RedHat/RPMS/glibc-2.0.7-29.i386.rpm
 Source3:        https://archive.org/download/corel-wpunix-8/COREL_WPUNIX_1.iso
@@ -25,7 +28,7 @@ Provides:       bundled(libc) = 5.3.12-29
 
 # Instructions:
 # $ spectool -g -R wordperfect8.spec
-# $ QA_RPATHS=$(( 0x0001|0x0010 )) setarch i686 rpmbuild -bb wordperfect8.spec
+# $ QA_RPATHS=$(( 0x0001|0x0010 )) setarch i686 rpmbuild --target i686 -bb wordperfect8.spec
 #
 
 %define __strip /bin/true
@@ -38,8 +41,7 @@ WordPerfect is a word processing application for character terminals.
 %global debug_package %{nil}
 
 %prep
-#%setup -q -n wpunix-main
-%setup -q -n wpunix-%{version}
+%forgesetup
 
 cp %{SOURCE1} %{SOURCE2} %{SOURCE3} .
 
