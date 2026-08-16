@@ -1,5 +1,5 @@
 CPPFLAGS=-Iinclude -Iintercept -U_FORTIFY_SOURCE
-CFLAGS=-fno-stack-protector -m32
+CFLAGS=-fno-stack-protector -fPIC -m32
 
 .PHONY: clean
 

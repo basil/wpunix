@@ -1,4 +1,4 @@
-CFLAGS	= -O0 -ggdb3 -m32 -std=gnu99 -Wno-multichar -w -fno-stack-protector
+CFLAGS	= -O0 -ggdb3 -m32 -std=gnu99 -Wno-multichar -w -fno-stack-protector -fPIC
 CPPFLAGS= -DNDEBUG -U_FORTIFY_SOURCE
 LDFLAGS	= $(CFLAGS) -m32
 
