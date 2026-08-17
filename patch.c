@@ -58,10 +58,10 @@ static void win_resize_event(int signum)
     }
 
     // Make sure this looks sane.
-    if (w.ws_col < 24)
-        w.ws_col = 24;
-    if (w.ws_row < 80)
-        w.ws_row = 80;
+    if (w.ws_col < 80)
+        w.ws_col = 80;
+    if (w.ws_row < 24)
+        w.ws_row = 24;
 
     // Okay, send this to wordperfect.
     win_resize(w.ws_col, w.ws_row);
